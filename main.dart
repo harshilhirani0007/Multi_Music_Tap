@@ -12,27 +12,27 @@ class MultiMusic extends StatefulWidget {
   _MultiMusicState createState() => _MultiMusicState();
 }
 
-int number = 2;
-
-void MusicPlayer(int num) {
-  AssetsAudioPlayer.newPlayer().open(Audio("assets/audios/note$num.wav"));
-}
-
-Expanded playMusic({required Color color, required int soundNumber}) {
-  return Expanded(
-    child: TextButton(
-      style: ButtonStyle(
-        backgroundColor: MaterialStatePropertyAll<Color>(color),
-      ),
-      onPressed: () {
-        MusicPlayer(soundNumber);
-      },
-      child: const Row(),
-    ),
-  );
-}
-
 class _MultiMusicState extends State<MultiMusic> {
+  int number = 2;
+  
+  void MusicPlayer(int num) {
+    AssetsAudioPlayer.newPlayer().open(Audio("assets/audios/note$num.wav"));
+  }
+  
+  Expanded playMusic({required Color color, required int soundNumber}) {
+    return Expanded(
+      child: TextButton(
+        style: ButtonStyle(
+          backgroundColor: MaterialStatePropertyAll<Color>(color),
+        ),
+        onPressed: () {
+          MusicPlayer(soundNumber);
+        },
+        child: const Row(),
+      ),
+    );
+  }
+  
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
